@@ -1,0 +1,568 @@
+{% extends 'base.html' %}
+{% block son_page_css %}
+{% load static %}
+
+<style>
+    * {
+        padding: 0 0;
+        margin: 0 0 0 0;
+    }
+
+    section {
+        height: 100%;
+        display: block;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+
+    ul {
+        margin-bottom: 0px
+    }
+
+    li {
+        list-style: none;
+
+    }
+
+    a:hover {
+        color: #de3a16;
+    }
+
+    .panel-outer {
+        padding-top: 20px;
+    }
+
+
+    .fl {
+        float: left;
+    }
+
+
+    .left-panel {
+        width: 160px;
+        padding-left: 10px;
+
+    }
+
+
+    .middle-panel {
+        width: 490px;
+    }
+
+
+    .lunbuo img {
+        margin-top: -210px;
+    }
+
+    .right-panel {
+        margin-left: 20px;
+        width: 330px
+    }
+
+    .title_bar {
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .title_bar a {
+        margin-left: 20px;
+        color: #dd3915;
+    }
+
+    .title_bar div {
+        height: 60px;
+        line-height: 60px;
+        display: inline-block;
+    }
+
+    .title_bar > div:nth-child(2) {
+        float: right;
+    }
+
+
+    a {
+        color: black;
+        font-size: 14px;
+    }
+
+
+    .carousel-item ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+    }
+
+
+    .plain li {
+        width: 235px;
+        height: 220px;
+        border: 1px solid #f1f1f1;
+        margin-bottom: 20px;
+    }
+
+    .carousel-item ul li {
+        float: left;
+        width: 150px;
+        height: 110px;
+        text-align: center;
+    }
+
+
+    .meat_div > div > div:nth-child(1) {
+        width: 25%;
+    }
+
+    .meat_div > div > div:nth-child(2) {
+        width: 75%;
+    }
+
+    .meat_div > div > div:nth-child(2) a {
+        display: inline-block;
+        width: 60px;
+    }
+
+    .meat_div > div > div:nth-child(2) a:hover {
+        color: red;
+    }
+
+    .meat_div > div > div {
+        float: left;
+    }
+
+    .meat_div > div {
+        display: inline-block;
+        height: auto;
+        width: 100%;
+    }
+
+    .meat_div > div:after {
+        content: '';
+        width: 100%;
+        border-top: 1px solid #9b9b9b;
+        display: inline-block;
+    }
+
+    .meat_div > div:last-child:after {
+        border-top: 0px;
+    }
+
+
+    .popular_frame > div {
+        margin-top: 10px;
+    }
+
+    .popular_frame > div:last-child {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .popular_frame > div:last-child > a {
+        font-size: 12px;
+    }
+
+    .popular_frame > div:last-child > span {
+        color: darkgrey;
+    }
+
+
+    .login > ul img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .login > ul li {
+        margin-top: 10px;
+        text-align: center;
+        color: white;
+    }
+
+    .login > ul li a {
+        color: white;
+    }
+
+    .login a {
+        color: #de3a16;
+    }
+
+
+    .report-link a {
+        font-size: 12px;
+        color: #de3a16;
+    }
+
+
+    .pop-keywords .title_bar {
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .pop-plain ul {
+        float: left;
+    }
+
+    .pop-plain ul li {
+        width: 150px;
+        height: 30px;
+        color: #c9c9c9;
+    }
+
+    .pop-plain ul li a {
+        margin-left: 10px
+    }
+
+    .pop-plain ul li b {
+        color: #f53a2a;
+    }
+
+    .recipe-menu-name {
+        width: 300px;
+        height: 56px;
+        line-height: 56px;
+        text-align: center;
+    }
+
+    .recipe-menu {
+
+    }
+
+    .recipe-menu a {
+        border: 1px solid #f1f1f1;
+
+        display: block;
+        margin-bottom: 20px;
+    }
+
+
+    .cook-follow > div {
+        display: inline-block;
+        float: left;
+    }
+
+
+    .detail ul li {
+        height: 20px;
+        line-height: 20px;
+
+    }
+
+    .detail ul li:nth-child(2), .detail ul li:nth-child(3) {
+        font-size: 12px;
+        color: #9b9b9b;
+    }
+
+
+    .action a {
+        color: white;
+    }
+
+
+    .more a {
+        color: #de3a16;
+    }
+
+    .search-left-nav-list li {
+        height: 30px;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+
+    .search-left-nav-list li a {
+        font-size: 16px;
+    }
+
+    .pop-keywords {
+        margin-top: 80px;
+        color: darkgrey;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .pop-keywords ul li {
+        height: 25px;
+        line-height: 25px;
+        margin-bottom: 5px;
+    }
+
+    h1 {
+        margin: 0 0 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        font-size: 34px;
+    }
+
+
+    .sub-tabs a {
+        color: black;
+    }
+
+    .sub-tabs ul li {
+        float: left;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .ias-container ul li {
+        border: 1px #f1f1f1 solid;
+        margin-bottom: 20px;
+    }
+
+    .ias-container ul li div {
+        float: left;
+    }
+
+    .ias-container ul li:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .desc{
+        padding-top: 10px;
+        padding-left: 20px;
+    }
+    .stats{
+        color: #c5c5c5;
+        font-size: 15px;
+    }
+    .name{
+        height: 40px;
+        line-height: 40px;
+    }
+    .name a{
+        font-weight: 700;
+        font-size: 20px;
+    }
+    .green-font{
+        color: #72a46d;
+    }
+</style>
+{% endblock %}
+{% block section %}
+<section>
+    <div class="panel-outer">
+        <!--        左边-->
+        <div class="left-panel fl">
+            <ul class="search-left-nav-list">
+                <li><a href="/category">全部分类</a></li>
+                <li><a href="/explore/">本周最受欢迎</a></li>
+
+                <li><a href="/explore/rising/">新秀菜谱</a></li>
+
+                <li><a href="/explore/head/">往期头条</a></li>
+
+                <li><a href="/explore/honor/">厨房101</a></li>
+
+                <li><a href="/explore/monthhonor/">月度最佳</a></li>
+                <li><a href="#">流行菜单</a></li>
+
+            </ul>
+
+            <div class="pop-keywords">
+                <p class="gray-font">流行搜索</p>
+                <ul class=" ">
+
+                    <li>
+                        <a href="/search/?keyword=%E7%83%A4%E9%B1%BC%E7%83%A4%E7%AE%B1&amp;cat=1001&amp;via=hot">烤鱼烤箱</a>
+                    </li>
+
+                    <li><a href="/category/1003967/">鸡蛋豆腐</a></li>
+
+                    <li><a href="/category/1011823/">八爪鱼</a></li>
+
+                    <li><a href="/category/1016499/">油爆虾</a></li>
+
+                    <li><a href="/category/1002119/">红薯粉</a></li>
+
+                    <li><a href="/category/1125/">木耳菜</a></li>
+
+                    <li><a href="/category/1190/">鸭腿</a></li>
+
+                    <li><a href="/category/1000202/">贝果</a></li>
+
+                    <li><a href="/category/1013135/">冬瓜海带汤</a></li>
+
+                    <li><a href="/category/52387/">外貌协会</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--        中间-->
+        <div class="middle-panel fl">
+            <h1 class="page-title">最近流行的菜单</h1>
+
+            <div class="ias-container">
+                <ul class="">
+                    <li>
+                        <div class="cover">
+                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
+                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     alt="【麦格婆婆麦】" class="unveiled">
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <p class="name">
+                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
+                            </p>
+                            <div class="stats">
+                                <p class="green-font">
+                                    9菜谱
+                                </p>
+
+                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
+                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
+                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     alt="【麦格婆婆麦】" class="unveiled">
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <p class="name">
+                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
+                            </p>
+                            <div class="stats">
+                                <p class="green-font">
+                                    9菜谱
+                                </p>
+
+                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
+                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
+                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     alt="【麦格婆婆麦】" class="unveiled">
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <p class="name">
+                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
+                            </p>
+                            <div class="stats">
+                                <p class="green-font">
+                                    9菜谱
+                                </p>
+
+                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
+                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
+                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
+                                     alt="【麦格婆婆麦】" class="unveiled">
+                            </a>
+                        </div>
+                        <div class="desc">
+                            <p class="name">
+                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
+                            </p>
+                            <div class="stats">
+                                <p class="green-font">
+                                    9菜谱
+                                </p>
+
+                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
+                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+    <!--        右边-->
+    <div class="right-panel fl">
+
+        <div class="pop-recipe-lists">
+            <div class="title_bar">
+                <div><b style="color: #c0ae7d ;font-size: 18px">流行菜单</b><a href="#">全部</a></div>
+            </div>
+            <div class="recipe-menu">
+                <a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
+                   target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
+                   data-expose-tracking-url="">
+                    <img class=""
+                         src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
+                         alt="超1000人做过的家常菜的封面" width="300" height="140">
+                    <div class="recipe-menu-name">超1000人做过的家常菜</div>
+                </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
+                       target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
+                       data-expose-tracking-url="">
+                <img class=""
+                     src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
+                     alt="超1000人做过的家常菜的封面" width="300" height="140">
+                <div class="recipe-menu-name">超1000人做过的家常菜</div>
+            </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
+                   target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
+                   data-expose-tracking-url="">
+                <img class=""
+                     src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
+                     alt="超1000人做过的家常菜的封面" width="300" height="140">
+                <div class="recipe-menu-name">超1000人做过的家常菜</div>
+            </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
+                   target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
+                   data-expose-tracking-url="">
+                <img class=""
+                     src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
+                     alt="超1000人做过的家常菜的封面" width="300" height="140">
+                <div class="recipe-menu-name">超1000人做过的家常菜</div>
+            </a>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block js %}
+<script>
+
+    $(".cat-icon").each(function (index, domEle) {
+        // 回调函数第一个参数一定是索引号 可以自己指定索引号名称
+        h = -index * 40
+        pz = '0px ' + h + 'px'
+        $(domEle).css('background-position', pz)
+        // 回调函数第二个参数一定是 dom元素对象
+
+    })
+
+    $('.rising-recipes ul').on('mouseover', 'li', function () {
+        $(this).find('img').css('opacity', '0.8');
+    })
+    $('.rising-recipes ul').on('mouseleave', 'li', function () {
+        $(this).find('img').css('opacity', '1');
+    })
+    $('.meat').hover(function () {
+        $(this).find('.meat_div').css('display', 'block')
+    }, function () {
+        $(this).find('.meat_div').css('display', 'none')
+
+    });
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

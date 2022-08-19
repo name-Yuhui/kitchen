@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% block son_page_css %}
+
+
+{% load static %}
+<style>
+
+    * {
+        padding: 0 0;
+        margin: 0 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    section {
+        height: 100%;
+        display: block;
+        width: 1000px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        margin: 0 0 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        font-size: 34px;
+    }
+
+    .sub-tabs {
+        height: 60px;
+    }
+
+    .sub-tabs a {
+        color: black;
+    }
+
+    .sub-tabs ul li {
+        float: left;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+
+    .ias-container ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    .ias-container ul li {
+        float: left;
+        border: 1px solid rgba(197, 197, 197, 0.45);
+        margin-bottom: 30px;
+    }
+
+    .name {
+        width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 10px;
+    }
+
+    .name a {
+        font-size: 16px;
+        color: #de3a16;
+    }
+
+    .desc {
+        box-sizing: border-box;
+        overflow: hidden;
+        font-size: 12px;
+        display: block;
+        height: 63px;
+        padding: 0 10px;
+    }
+
+    .dish-280 {
+        width: 280px;
+    }
+
+    .stats {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .stats p {
+        width: 50%;
+        display: inline-block;
+        float: left;
+        color: #9b9b9b;
+    }
+
+    .stats p:last-child {
+        text-align: right;
+    }
+
+    .n-diggs:before {
+        content: "👍";
+        padding: 0 6px;
+        margin-right: 5px;
+    }
+
+    .n-comments:before {
+        content: "📕";
+        padding: 0 6px;
+        margin-right: 5px;
+    }
+
+    .author {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+</style>
+{% endblock %}
+{% block section %}
+<section>
+    <div class="page-container">
+        <h1 class="page-title">按照菜谱，秀出你的作品</h1>
+        <div class="sub-tabs">
+            <ul class="">
+                <li class=""><a href="#" rel="nofollow">正在流行</a></li>
+                <li class=""><a href="#" rel="nofollow">24小时最佳</a></li>
+            </ul>
+        </div>
+
+        <div class="ias-container">
+            <ul class="">
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="pure-u">
+                    <div class="dish-280  white-bg has-border" data-digged="false" data-id="187635973" role="dish">
+                        <div class="cover">
+                            <img src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 data-src="https://i2.chuimg.com/47c315b5730f47a6bd72164f5a9b4d90_1024w_1536h.jpg?imageView2/1/w/280/h/280/interlace/1/q/90"
+                                 alt="拇指生煎包｜无需揉面！一口一个嘎嘎香" width="280" height="280" class="unveiled">
+                            <a href="/dish/187635973/" title="拇指生煎包｜无需揉面！一口一个嘎嘎香" class="link-layer cover-link"
+                               style="opacity: 0;"></a>
+                            <a href="/auth/login/" rel="nofollow" class="plain digg-link login"
+                               style="display: none;"></a>
+                        </div>
+                        <p class="name ">
+                            <a href="/dish/187635973/">拇指生煎包｜无需揉面！一口一个嘎嘎香</a>&nbsp;
+                        </p>
+                        <p class="desc">
+                            ☀ | ᴍᴏʀɴɪɴɢ🌿🌿🌿
+                            早上好💕
+                            #早餐•2022年8月18日#
+                            #米面。家常味#
+                        </p>
+                        <div class="stats ">
+                            <p class="">昨天 08:37</p>
+                            <p class=" align-right">
+                                &nbsp;<span class="n-diggs">178</span>&nbsp;&nbsp;
+                                <span class="n-comments">19</span>
+                            </p>
+                        </div>
+                        <div class="author ellipsis">
+                            <a href="/cook/10140888/" title="烟火间" class="avatar-link avatar">
+                                <img src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     data-src="https://i2.chuimg.com/9c27f6ea75484501b637abad29166e1d_2048w_1536h.jpg?imageView2/1/w/30/h/30/interlace/1/q/90"
+                                     alt="烟火间" width="30" height="30" class="unveiled">
+                                烟火间
+                            </a>
+                            <a href="/feature/cook/master/" class="icon icon-cooker" rel="nofollow"></a>
+                            <span class="location gray-font">（安徽,黄山）</span>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+
+    $('.sub-tabs').on('click', 'a', function () {
+        $(".sub-tabs").find('a').each(function (index, domEle) {
+            $(domEle).css('color', 'black')
+
+        })
+        $(this).css('color', '#de3a16')
+    })
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
