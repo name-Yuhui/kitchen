@@ -15,6 +15,11 @@
         margin: 0 auto;
     }
 
+    section:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
 
     ul {
         margin-bottom: 0px
@@ -28,11 +33,6 @@
     a:hover {
         color: #de3a16;
     }
-
-    .panel-outer {
-        padding-top: 20px;
-    }
-
 
     .fl {
         float: left;
@@ -323,23 +323,27 @@
         clear: both;
     }
 
-    .desc{
+    .desc {
         padding-top: 10px;
         padding-left: 20px;
     }
-    .stats{
+
+    .stats {
         color: #c5c5c5;
         font-size: 15px;
     }
-    .name{
+
+    .name {
         height: 40px;
         line-height: 40px;
     }
-    .name a{
+
+    .name a {
         font-weight: 700;
         font-size: 20px;
     }
-    .green-font{
+
+    .green-font {
         color: #72a46d;
     }
 </style>
@@ -351,15 +355,15 @@
         <div class="left-panel fl">
             <ul class="search-left-nav-list">
                 <li><a href="/category">全部分类</a></li>
-                <li><a href="/explore/">本周最受欢迎</a></li>
+                <li><a href="#">本周最受欢迎</a></li>
 
-                <li><a href="/explore/rising/">新秀菜谱</a></li>
+                <li><a href="#">新秀菜谱</a></li>
 
-                <li><a href="/explore/head/">往期头条</a></li>
+                <li><a href="#">往期头条</a></li>
 
-                <li><a href="/explore/honor/">厨房101</a></li>
+                <li><a href="#">厨房101</a></li>
 
-                <li><a href="/explore/monthhonor/">月度最佳</a></li>
+                <li><a href="#">月度最佳</a></li>
                 <li><a href="#">流行菜单</a></li>
 
             </ul>
@@ -540,27 +544,13 @@
 {% block js %}
 <script>
 
-    $(".cat-icon").each(function (index, domEle) {
-        // 回调函数第一个参数一定是索引号 可以自己指定索引号名称
-        h = -index * 40
-        pz = '0px ' + h + 'px'
-        $(domEle).css('background-position', pz)
-        // 回调函数第二个参数一定是 dom元素对象
-
+    $('.search-left-nav-list').on('click', 'a', function () {
+        $('.search-left-nav-list a').each(function (index, e) {
+            $(e).css('color', 'black')
+        })
+        $(this).css('color', '#de3a16')
     })
 
-    $('.rising-recipes ul').on('mouseover', 'li', function () {
-        $(this).find('img').css('opacity', '0.8');
-    })
-    $('.rising-recipes ul').on('mouseleave', 'li', function () {
-        $(this).find('img').css('opacity', '1');
-    })
-    $('.meat').hover(function () {
-        $(this).find('.meat_div').css('display', 'block')
-    }, function () {
-        $(this).find('.meat_div').css('display', 'none')
-
-    });
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>

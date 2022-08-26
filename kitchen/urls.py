@@ -19,6 +19,7 @@ from app01 import views
 
 urlpatterns = [
     path('', views.index),
+    path('index/', views.recipe),
     path('admin/', admin.site.urls),
     path('login/', views.login),
     path('category/', views.category),
