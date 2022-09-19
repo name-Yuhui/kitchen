@@ -26,6 +26,7 @@ def index(request):
     recent = list(recp.find().sort("date", pymongo.DESCENDING).limit(6))
 
     username = auth(request)
+
     return render(request, 'index.html',
                   {"carousel": carousel, "username": username,"new_recipes":new_recipes,
                    "recent":recent,"recipe_url_prefix":"/recipe/"})
@@ -137,8 +138,13 @@ def works(request):
 
 
 def menu(request):
+    kitchenDB = mongo_handle.kitchenDB()
+    recp = kitchenDB.recipes
+
     username = auth(request)
-    return render(request, "menu.html", {"username": username})
+    key = request.GET.get('key')
+    recipes_list = list(recp.find({"$or": [{"title": {'$regex': key}},{"use_foods.name": {'$regex': key}}]})) if key else None
+    return render(request, "menu.html", {"username": username,"recipes_list":recipes_list,"recipe_url_prefix":"/recipe/"})
 
 
 def recipe(request,recipe_id):

@@ -15,7 +15,7 @@
         margin: 0 auto;
     }
 
-    section:after{
+    section:after {
         content: '';
         display: block;
         clear: both;
@@ -327,7 +327,6 @@
         padding-top: 10px;
         padding-left: 20px;
     }
-
     .stats {
         color: #c5c5c5;
         font-size: 15px;
@@ -336,6 +335,7 @@
     .name {
         height: 40px;
         line-height: 40px;
+        max-width: 250px;
     }
 
     .name a {
@@ -345,6 +345,19 @@
 
     .green-font {
         color: #72a46d;
+    }
+    .image-link{
+        display: block;
+        width: 100%;
+        height: 136px;
+        overflow: hidden;
+    }
+    .ellipsis{
+        width: 100%;
+        display: inline-block;
+        white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     }
 </style>
 {% endblock %}
@@ -402,94 +415,29 @@
 
             <div class="ias-container">
                 <ul class="">
+                    {% for item in recipes_list %}
                     <li>
                         <div class="cover">
-                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
-                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     alt="【麦格婆婆麦】" class="unveiled">
+                            <a href="{{recipe_url_prefix}}{{item.id}}" class="image-link" target="_blank">
+                                <img src="{{item.img_src}}" alt="{{item.title}}" class="unveiled" width="215px">
                             </a>
                         </div>
                         <div class="desc">
                             <p class="name">
-                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
+                                <a href="{{recipe_url_prefix}}{{item.id}}" target="_blank"><span class="ellipsis">{{item.title}}</span></a>
                             </p>
                             <div class="stats">
                                 <p class="green-font">
                                     9菜谱
                                 </p>
 
-                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
-                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
+                                <a href="#" class="gray-link">{{item.author}}</a>
+                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">{{item.collected_nums}}&nbsp;收藏</span>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="cover">
-                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
-                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     alt="【麦格婆婆麦】" class="unveiled">
-                            </a>
-                        </div>
-                        <div class="desc">
-                            <p class="name">
-                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
-                            </p>
-                            <div class="stats">
-                                <p class="green-font">
-                                    9菜谱
-                                </p>
 
-                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
-                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cover">
-                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
-                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     alt="【麦格婆婆麦】" class="unveiled">
-                            </a>
-                        </div>
-                        <div class="desc">
-                            <p class="name">
-                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
-                            </p>
-                            <div class="stats">
-                                <p class="green-font">
-                                    9菜谱
-                                </p>
-
-                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
-                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="cover">
-                            <a href="/recipe_list/579217022567620608/" class="image-link" target="_blank">
-                                <img src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     data-src="https://i2.chuimg.com/85d8e94171c8486e84ed593ece8125fd_851w_1280h.jpg?imageView2/1/w/215/h/136/interlace/1/q/90"
-                                     alt="【麦格婆婆麦】" class="unveiled">
-                            </a>
-                        </div>
-                        <div class="desc">
-                            <p class="name">
-                                <a href="/recipe_list/579217022567620608/" target="_blank"><span class="ellipsis">【麦格婆婆麦】</span></a>
-                            </p>
-                            <div class="stats">
-                                <p class="green-font">
-                                    9菜谱
-                                </p>
-
-                                <a href="/cook/157512509/" class="gray-link">麦格麦麦</a>
-                                &nbsp;创建&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="n-collects">3740&nbsp;收藏</span>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
 
             </div>

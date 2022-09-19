@@ -28,7 +28,8 @@ urlpatterns = [
     path('category/', views.category),
     path('publish/', views.publish),
     path('works/', views.works),
-    path('menu/', views.menu),
+    re_path('^menu/', views.menu),
+    re_path('^search/', views.menu),
     re_path('recipe/(\d+)', views.recipe),
 
     re_path('recipe_imgs/(.*)',views.get_img),
