@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block son_page_css %}
 {% load static %}
+{% load my_tags %}
 
 <style>
     * {
@@ -83,8 +84,8 @@
     }
 
     .right-panel {
-        margin-left: 20px;
-        width: 330px
+        margin-left: 50px;
+        width: 300px
     }
 
     .title_bar {
@@ -209,6 +210,10 @@
 
 
     .font18 {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 18px;
     }
 
@@ -325,11 +330,17 @@
 
     .recipe-menu a {
         border: 1px solid #f1f1f1;
-
         display: block;
         margin-bottom: 20px;
-    }
+             width: 300px;
 
+    }
+.recipe-menu a span{
+    display: block;
+     width: 300px;
+        height: 140px;
+        overflow: hidden;
+}
     .has-bottom-border {
         margin-bottom: 20px;
         height: 80px;
@@ -381,6 +392,27 @@
     .more a {
         color: #de3a16;
     }
+    .cover {
+        width: 235px;
+        height: 138px;
+        display: block;
+        overflow: hidden;
+
+    }
+    .cover img{
+        /*z-index: -999;*/
+    }
+    .popular_frame{
+        width: 235px;
+        height: 220px;
+        overflow: hidden;
+    }
+    .xinxiu{
+        display: block;
+        width: 150px;
+        height: 90px;
+        overflow: hidden;
+    }
 </style>
 {% endblock %}
 {% block section %}
@@ -395,15 +427,15 @@
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">快手菜</span>
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">下饭菜</span>
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">早餐</span>
                 </a></li>
                 <li class="meat"><a href="/category/40076/">
                     <i class="cat-icon"></i>
@@ -526,7 +558,7 @@
                 </li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">鱼</span>
                 </a></li>
                 <li class="meat"><a href="/category/40076/">
                     <i class="cat-icon"></i>
@@ -635,24 +667,45 @@
                 </li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">鸡蛋</span>
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">汤羹</span>
+                </a>
+                <li><a href="/category/40076/">
+                    <i class="cat-icon"></i>
+                    <span class="cat-name">烘培</span>
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">主食</span>
                 </a></li>
                 <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">面</span>
                 </a></li>
-                <li><a href="/category/40076/">
+                                <li><a href="/category/40076/">
                     <i class="cat-icon"></i>
-                    <span class="cat-name">家常菜</span>
+                    <span class="cat-name">素食</span>
                 </a></li>
+                                <li><a href="/category/40076/">
+                    <i class="cat-icon"></i>
+                    <span class="cat-name">孕妇</span>
+                </a></li>
+                                <li><a href="/category/40076/">
+                    <i class="cat-icon"></i>
+                    <span class="cat-name">产妇</span>
+                </a></li>
+                                <li><a href="/category/40076/">
+                    <i class="cat-icon"></i>
+                    <span class="cat-name">婴儿</span>
+                </a></li>
+                                <li><a href="/category/40076/">
+                    <i class="cat-icon"></i>
+                    <span class="cat-name">儿童</span>
+                </a></li>
+
 
 
             </ul>
@@ -666,15 +719,13 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active lunbuo">
-                        <img src=" {% static 'imgs/p1.jpg' %}" class="d-block w-100 " alt="...">
+
+                    {% for item in carousel %}
+                    <div class="carousel-item {% if forloop.counter == 1 %}active{%endif%} lunbuo">
+                        <a href="{{recipe_url_prefix}}{{item.id}}"><img src="{{ item.img_src }}" class="d-block w-100 " alt="..."></a>
                     </div>
-                    <div class="carousel-item lunbuo">
-                        <img src="{% static 'imgs/p1.jpg' %}" class="d-block w-100 " alt="...">
-                    </div>
-                    <div class="carousel-item lunbuo">
-                        <img src="{% static 'imgs/p1.jpg' %}" class="d-block w-100 " alt="...">
-                    </div>
+                    {% endfor %}
+
                 </div>
                 <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators"
                         data-slide="prev">
@@ -707,89 +758,24 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <ul>
-                                <li>
+                                {% for item in new_recipes %}
+                                <li style="height: 122px">
                                     <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
+                                        <a href="{{recipe_url_prefix}}{{item.id}}" class="xinxiu"><img
+                                                src="{{ item.img_src }}"
+                                                alt="{{ item.title }}" width="150" ></a>
+                                        <a href="{{recipe_url_prefix}}{{item.id}}">{{ item.title }}</a>
                                     </div>
                                 </li>
 
+
+                                {% if forloop.counter|remainder:3 == 0 and not forloop.last %}
                             </ul>
                         </div>
-                        <div class="carousel-item">
-                            <ul>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="carousel-item">
-                            <ul>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <img
-                                                src="https://i2.chuimg.com/754c59fd9337420f9b0a3d7da55b56a1_1280w_1024h.jpg?imageView2/1/w/150/h/90/interlace/1/q/90"
-                                                alt="驴打滚（豆沙馅）" width="150" height="90">
-                                        <a href="#">驴打滚（豆沙馅）</a>
-                                    </div>
-                                </li>
-
+                        <div class="carousel-item ">
+                            <ul>{% else%}
+                                {% endif %}
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -801,90 +787,24 @@
                     <div><b style="color: #c0ae7d ;font-size: 18px">最近流行</b><a href="#">全部</a></div>
                 </div>
                 <ul class="plain">
+                    {% for item in recent %}
                     <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
+                        <div title="{{item.title}}" class="popular_frame">
+                            <a class="cover" href="{{recipe_url_prefix}}{{item.id}}">
+                                <img src="{{item.img_src}}"
+                                     alt="{{item.title}}" width="100%">
                             </a>
                             <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
+                                <a class="font18" href="{{recipe_url_prefix}}{{item.id}}">{{item.title}}</a>
                             </div>
                             <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
+                                <a class="ellipsis" href="#">{{item.author}}</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>{{item.done_nums}}&nbsp;做过</span>
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
-                            </a>
-                            <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
-                            </div>
-                            <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
-                            </a>
-                            <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
-                            </div>
-                            <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
-                            </a>
-                            <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
-                            </div>
-                            <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
-                            </a>
-                            <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
-                            </div>
-                            <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div title="香酥肉饼" class="popular_frame">
-                            <a class="cover" href="/recipe/106524302/">
-                                <img src="https://i2.chuimg.com/97a6b3f9b10b4befafc8e0b0d06fd699_1280w_1123h.jpg?imageView2/1/w/235/h/138/interlace/1/q/90"
-                                     alt="香酥肉饼" width="235" height="138">
-                            </a>
-                            <div class="text_center">
-                                <a class="font18" href="/recipe/106524302/">香酥肉饼</a>
-                            </div>
-                            <div>
-                                <a class="ellipsis" href="/cook/114269277/">liuliu爱美食</a> &nbsp;&nbsp;&nbsp;&nbsp;<span>97&nbsp;做过</span>
-                            </div>
-                        </div>
-                    </li>
+                    {%endfor%}
+
+
                 </ul>
             </div>
         </div>
@@ -893,9 +813,19 @@
             <div class="user-info">
                 <div class="login">
                     <ul>
+                        {% if username != None %}
+                        <li><a href="#" class="small-button"><img
+                                src=" {% static 'imgs/qq.png' %}"></img>{{username}}</a>
+                        </li>
+                        <li><a href="publish/" class="small-button"><img
+                                src=" {% static 'imgs/wb.png' %}"></img>发布菜谱</a></li>
+                        {%else%}
                         <li><a href="login" class="small-button"><img src=" {% static 'imgs/qq.png' %}"></img> QQ 登录</a>
                         </li>
-                        <li><a href="" class="small-button"><img src=" {% static 'imgs/wb.png' %}"></img> 微博登录</a></li>
+                        <li><a href="publish/" class="small-button"><img src=" {% static 'imgs/wb.png' %}"></img>
+                            微博登录</a></li>
+                        {%endif%}
+
                     </ul>
                     <a href="/auth/login/" rel="nofollow">手机/邮箱登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/auth/apply/"
                                                                                                  rel="nofollow">注册</a>
@@ -911,18 +841,18 @@
                 <div class="pop-plain">
                     <ul class="">
                         <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
+                        <li>2 <a href="">鸡蛋豆腐</a> <b>↑</b></li>
+                        <li>3 <a href="">八爪鱼</a> <b>↑</b></li>
+                        <li>4 <a href="">油爆虾</a> <b>↑</b></li>
+                        <li>5 <a href="">红薯粉</a> <b>↑</b></li>
 
                     </ul>
                     <ul class="">
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
-                        <li>1 <a href="">烤鱼烤肉烤</a> <b>↑</b></li>
+                        <li>6 <a href="">木耳菜</a> <b>↑</b></li>
+                        <li>7 <a href="">鸭腿</a> <b>↑</b></li>
+                        <li>8 <a href="">贝果</a> <b>↑</b></li>
+                        <li>9 <a href="">冬瓜海</a> <b>↑</b></li>
+                        <li>10<a href="">外貌协会</a> <b>↑</b></li>
 
                     </ul>
                 </div>
@@ -932,36 +862,14 @@
                     <div><b style="color: #c0ae7d ;font-size: 18px">流行菜单</b><a href="#">全部</a></div>
                 </div>
                 <div class="recipe-menu">
-                    <a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
-                       target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
-                       data-expose-tracking-url="">
-                        <img class=""
-                             src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
-                             alt="超1000人做过的家常菜的封面" width="300" height="140">
-                        <div class="recipe-menu-name">超1000人做过的家常菜</div>
-                    </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
-                           target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
-                           data-expose-tracking-url="">
-                    <img class=""
-                         src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
-                         alt="超1000人做过的家常菜的封面" width="300" height="140">
-                    <div class="recipe-menu-name">超1000人做过的家常菜</div>
-                </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
-                       target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
-                       data-expose-tracking-url="">
-                    <img class=""
-                         src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
-                         alt="超1000人做过的家常菜的封面" width="300" height="140">
-                    <div class="recipe-menu-name">超1000人做过的家常菜</div>
-                </a><a class="" href="/recipe_list/101780187/" title="超1000人做过的家常菜"
-                       target="_blank" data-ga-event="首页/流行菜单/第3个" data-click-tracking-url=""
-                       data-expose-tracking-url="">
-                    <img class=""
-                         src="https://i2.chuimg.com/4daad8ea877a11e6a9a10242ac110002_469w_701h.jpg?imageView2/1/w/300/h/140/interlace/1/q/90"
-                         alt="超1000人做过的家常菜的封面" width="300" height="140">
-                    <div class="recipe-menu-name">超1000人做过的家常菜</div>
-                </a>
-
+                    {% for item in recent%}
+                    <a class="" href="{{recipe_url_prefix}}{{item.id}}" title="{{item.title}}"
+                       target="_blank" data-ga-event="首页/流行菜单/第3个"  >
+                        <span><img class=""
+                             src="{{item.img_src}}" alt="超1000人做过的家常菜的封面" width="300" ></span>
+                        <div class="recipe-menu-name">{{item.title}}</div>
+                    </a>
+                    {%endfor%}
                 </div>
             </div>
             <div class="recommended-cookers">
@@ -1076,7 +984,6 @@
         // 回调函数第二个参数一定是 dom元素对象
 
     })
-
     $('.rising-recipes ul').on('mouseover', 'li', function () {
         $(this).find('img').css('opacity', '0.8');
     })
@@ -1087,8 +994,17 @@
         $(this).find('.meat_div').css('display', 'block')
     }, function () {
         $(this).find('.meat_div').css('display', 'none')
-
     });
+</script>
+<script>
+    // var username = '';
+    // if (document.cookie.split(';')[1]) {
+    //     username = document.cookie.split(';')[1].trim().split('=')[1]
+    //     console.log(username)
+    //     // console.log($('.user-info .login ul li:first').text())
+    //     $('.user-info .login ul li:first a').text(username)
+    //     $('.user-info .login ul li:last a').text("发布菜谱")
+    // }
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>

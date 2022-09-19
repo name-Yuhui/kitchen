@@ -152,6 +152,10 @@
         padding-left: 5px;
     }
 
+    .steps ol {
+        counter-reset: li;
+    }
+
     .steps ol li {
         position: relative;
         list-style: none;
@@ -159,6 +163,7 @@
         margin-left: 30px;
         margin-bottom: 40px;
     }
+
 
     .steps ol li:before {
         content: counter(li);
@@ -174,6 +179,7 @@
 
     .steps ol li > p {
         float: left;
+        width: 290px;
     }
 
     .steps ol li > img {
@@ -302,22 +308,22 @@
         <!--        左边-->
         <div class="left-panel fl">
             <h1 class="page-title">
-                厨师长教你：“红糖凉糕”的传统做法，夏日消暑佳品，收藏了
+                {{ info.title }}
             </h1>
             <div class="cover image expandable block-negative-margin"
-                 style="background-image: url(https://i2.chuimg.com/8e448166514643af97a9c1d95bcf195b_2948w_2448h.jpg?imageView2/2/w/660/interlace/1/q/90)">
-                <img src="https://i2.chuimg.com/8e448166514643af97a9c1d95bcf195b_2948w_2448h.jpg?imageView2/2/w/660/interlace/1/q/90"
+            >
+                <img src="{{info.img_src}}"
                      alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法" width="660">
             </div>
             <div class="container ">
                 <div class="stats clearfix">
                     <div class="score  ">
-                        <span class="number">7.4</span>
+                        <span class="number">{{info.score}}</span>
                         <span class="title">综合评分</span>
                     </div>
 
                     <div class="cooked  ">
-                        <span class="number">52</span>
+                        <span class="number">{{info.done_nums}}</span>
                         <span class="title">人做过这道菜</span>
                     </div>
                 </div>
@@ -327,13 +333,13 @@
             </div>
             <div class="author">
                 <a href="/cook/122339043/" title="美虎妈的厨房" class="">
-                    <img src="https://i2.chuimg.com/939c65e98a0c4fc1b4464846689d1b5f_308w_671h.jpg?imageView2/1/w/60/h/60/interlace/1/q/90"
+                    <img src="{{ user_info.image }}"
                          alt="美虎妈的厨房" width="60" height="60">
-                    &nbsp;美虎妈
+                    &nbsp;{{info.author}}
                 </a>
             </div>
             <div class="desc">
-                凉糕清爽可口、丝丝顺滑，在炎炎夏日放在冰箱里冷藏一段时间后可谓是夏日不可或缺的解暑良药🥰
+                {{info.description}}
             </div>
             <h2>
                 用料
@@ -341,113 +347,33 @@
             <div class="ings">
                 <table>
                     <tbody>
+                    {% for item in info.use_foods %}
                     <tr>
                         <td class="name">
-                            凉糕粉
+                            {{item.name}}
                         </td>
                         <td class="unit">
-                            250克
+                            {{item.g}}
                         </td>
                     </tr>
-                    <tr>
-                        <td class="name">
-
-
-                            <a href="/category/2438/">水</a>
-
-                        </td>
-                        <td class="unit">
-                            500➕3000克
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name">
-
-
-                            红糖➕水
-
-                        </td>
-                        <td class="unit">
-
-                        </td>
-                    </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
 
             <h2 id="steps">
-                红糖凉糕（附凉糕丝滑不破裂窍门）的做法 &nbsp;
+                {{info.title}}的做法 &nbsp;
             </h2>
 
             <div class="steps">
                 <ol>
-
+                    {% for item in info.steps %}
                     <li class="">
-                        <p class="text" style="">凉糕粉一包250克</p>
-                        <img src="https://i2.chuimg.com/e4aa70e6706a428da0b9c1a8638c4753_2448w_3264h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤1" width="300">
+                        <p class="text" style="">{{item.cont}}</p>
+                        <img src="{{ item.img_src }}" alt="{{ info.title}}的做法 步骤{{item.ord}}" width="300">
                     </li>
+                    {% endfor %}
 
-                    <li class="">
-                        <p class="text" style="">加水500克</p>
-                        <img src="https://i2.chuimg.com/4b5209dd55714882b3fe8402abecf4f8_2449w_2448h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤2" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">混匀静置30分钟</p>
-                        <img src="https://i2.chuimg.com/da529980d0934b78bcb510c6e3fe411c_1973w_1978h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤3" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">不粘锅锅内3000克水烧开，先取一半开水与凉糕粉糊混匀，再一起倒入锅内煮，不停搅拌，避免糊锅</p>
-                        <img src="https://i2.chuimg.com/900905d9615f4bb994134daea49c7526_1665w_1633h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤4" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">中火一直煮到凉糕粉糊煮开煮熟，颜色半透明均匀后关火，我之前因为没有完全煮熟煮透，做砸了，凉糕不成形</p>
-                        <img src="https://i2.chuimg.com/b136e6c3f74e46ad90e2f1746d0fff05_2050w_2066h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤5" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">把煮透的凉糕糊分装在圆底小碗儿里晾凉</p>
-                        <img src="https://i2.chuimg.com/728b5ef6e6a148b796613f7f58c5b827_2173w_2173h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤6" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">盖上保鲜膜冰箱冷藏</p>
-                        <img src="https://i2.chuimg.com/a24688bf015846fa866dc6ffe78c9299_1848w_1842h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤7" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">红糖和水按照1:1的比例煮化，室温晾凉后冰箱冷藏</p>
-                        <img src="https://i2.chuimg.com/e21b2114346c47f2820cd4ce3f2d48ca_1469w_1442h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤8" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">取出冷藏冰透的凉糕小碗儿，倒上一些清水，轻轻晃动小碗儿</p>
-                        <img src="https://i2.chuimg.com/a311b070e7c64060b35b0dc2162211d1_2449w_2448h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤9" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">
-                            让清水流进凉糕和碗内的缝隙，然后再轻轻倒出多余的水，这一步是保证凉糕丝滑没有破裂的关键，扣上一个同样也过了一遍水的小碟子迅速翻转</p>
-                        <img src="https://i2.chuimg.com/30d0885a2c5943e09732a8a7d642f05b_1302w_1700h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤10" width="300">
-                    </li>
-
-                    <li class="">
-                        <p class="text" style="">加红<a href="/category/20135/">糖水</a>就可以食用了</p>
-                        <img src="https://i2.chuimg.com/c6030059c6fc4a278832df05b1d9da88_2948w_2448h.jpg?imageView2/2/w/300/interlace/1/q/90"
-                             alt="红糖凉糕（附凉糕丝滑不破裂窍门）的做法 步骤11" width="300">
-                    </li>
                 </ol>
             </div>
             <div class="title-bar">
@@ -594,8 +520,8 @@
                 </div>
             </div>
             <div class="recipe-stats ">
-                <div class="time">该菜谱创建于 2022-03-01 04:56:16</div>
-                <div class="pv">1092 收藏</div>
+                <div class="time">该菜谱创建于 {{info.date|date:"Y-m-d H:i"}}</div>
+                <div class="pv">{{info.collected_nums}} 收藏</div>
                 <div class="copyright">
                     版权归作者所有，没有作者本人的书面许可任何人不得转载或使用整体或任何部分的内容。
                 </div>

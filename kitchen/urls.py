@@ -19,11 +19,18 @@ from app01 import views
 
 urlpatterns = [
     path('', views.index),
-    path('index/', views.recipe),
+    path('index/', views.index),
     path('admin/', admin.site.urls),
     path('login/', views.login),
+    path('logout/', views.logout),
+    path('register', views.regitser),
+
     path('category/', views.category),
+    path('publish/', views.publish),
     path('works/', views.works),
     path('menu/', views.menu),
+    re_path('recipe/(\d+)', views.recipe),
 
+    re_path('recipe_imgs/(.*)',views.get_img),
+    re_path('kitchen_u_imgs/(.*)', views.get_img)
 ]
